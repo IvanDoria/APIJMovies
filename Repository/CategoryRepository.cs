@@ -1,9 +1,9 @@
-﻿using APIJMovies.API.DAL;
-using APIJMovies.API.Repository.IRepository;
+﻿using APIJMovies.DAL;
+using APIJMovies.DAL.Models;
+using APIJMovies.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
-using PRACTICA.API.DAL.Models;
 
-namespace APIJMovies.API.Repository
+namespace APIJMovies.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {

@@ -1,7 +1,7 @@
-﻿using APIJMovies.API.DAL.Models.Dtos;
-using PRACTICA.API.DAL.Models;
+﻿using APIJMovies.DAL.Models;
+using APIJMovies.DAL.Models.Dtos;
 
-namespace APIJMovies.API.Services.IServices
+namespace APIJMovies.Services.IServices
 {
     public interface ICategorySevice
     {
@@ -9,8 +9,8 @@ namespace APIJMovies.API.Services.IServices
         Task<CategoryDto> GetCategoryAsync(int Id);
         Task<bool> CategoryExistsByIdAsync(int Id);
         Task<bool> CategoryExistsByNameAsync(string Name);
-        Task<bool> CreateCategoryAsync(Category category);
-        Task<bool> UpdateCategoryAsync(Category category);
+        Task<CategoryDto> CreateCategoryAsync(CategoryCreateDto categoryDto);
+        Task<CategoryDto> UpdateCategoryAsync(int id, Category categoryDto);
         Task<bool> DeleteCategoryAsync(int Id);
     }
 }

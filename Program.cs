@@ -1,9 +1,9 @@
-using APIJMovies.API.DAL;
-using APIJMovies.API.MoviesMapper;
-using APIJMovies.API.Repository;
-using APIJMovies.API.Repository.IRepository;
-using APIJMovies.API.Services;
-using APIJMovies.API.Services.IServices;
+using APIJMovies.DAL;
+using APIJMovies.MoviesMapper;
+using APIJMovies.Repository;
+using APIJMovies.Repository.IRepository;
+using APIJMovies.Services;
+using APIJMovies.Services.IServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

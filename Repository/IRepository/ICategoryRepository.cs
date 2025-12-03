@@ -1,6 +1,6 @@
-﻿using PRACTICA.API.DAL.Models;
+﻿using APIJMovies.DAL.Models;
 
-namespace APIJMovies.API.Repository.IRepository
+namespace APIJMovies.Repository.IRepository
 {
     public interface ICategoryRepository
     {

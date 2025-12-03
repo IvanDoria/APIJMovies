@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PRACTICA.API.DAL.Models
+namespace APIJMovies.DAL.Models
 {
     public class AuditBase
     {

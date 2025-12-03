@@ -1,10 +1,10 @@
-﻿using APIJMovies.API.DAL.Models.Dtos;
-using APIJMovies.API.Repository.IRepository;
-using APIJMovies.API.Services.IServices;
+﻿using APIJMovies.DAL.Models;
+using APIJMovies.DAL.Models.Dtos;
+using APIJMovies.Repository.IRepository;
+using APIJMovies.Services.IServices;
 using AutoMapper;
-using PRACTICA.API.DAL.Models;
 
-namespace APIJMovies.API.Services
+namespace APIJMovies.Services
 {
     public class CategoryService : ICategorySevice
     {
@@ -26,9 +26,30 @@ namespace APIJMovies.API.Services
             throw new NotImplementedException();
         }
 
-        public async Task<bool> CreateCategoryAsync(Category category)
+        public async Task<CategoryDto> CreateCategoryAsync(CategoryCreateDto categoryCreateDto)
         {
-            throw new NotImplementedException();
+            //Validar si la categoría ya existe por nombre
+            var categoryExists =await _categoryRepository.CategoryExistsByNameAsync(categoryCreateDto.Name);
+
+            if (categoryExists)
+                {
+                     throw new InvalidOperationException($"Ya existe una categoria con el nombre de '{categoryCreateDto.Name}'");
+                }
+
+            //Mapear el DTO a la entidad Category
+            var category = _mapper.Map<Category>(categoryCreateDto);
+
+            //Crear la categoría en el repositorio
+            var categoryCreated = await _categoryRepository.CreateCategoryAsync(category);
+
+            if (!categoryCreated)
+            {
+                throw new Exception("Error al crear la categoría");
+            }
+
+            //Mapear la entidad Category a CategoryDto
+            return _mapper.Map<CategoryDto>(category);
+
         }
 
         public async Task<bool> DeleteCategoryAsync(int Id)
@@ -49,7 +70,7 @@ namespace APIJMovies.API.Services
             return _mapper.Map<CategoryDto>(category);        // Mapeo de la categoría a DTO
         }
 
-        public async Task<bool> UpdateCategoryAsync(Category category)
+        public async Task<CategoryDto> UpdateCategoryAsync(int id, Category categoryDto)
         {
             throw new NotImplementedException();
         }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace APIJMovies.API.DAL.Models.Dtos
+namespace APIJMovies.DAL.Models.Dtos
 {
     public class CategoryCreateDto
     {

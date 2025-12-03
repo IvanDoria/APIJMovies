@@ -1,8 +1,8 @@
-﻿using APIJMovies.API.DAL.Models.Dtos;
+﻿using APIJMovies.DAL.Models;
+using APIJMovies.DAL.Models.Dtos;
 using AutoMapper;
-using PRACTICA.API.DAL.Models;
 
-namespace APIJMovies.API.MoviesMapper
+namespace APIJMovies.MoviesMapper
 {
     public class Mappers : Profile
     {
